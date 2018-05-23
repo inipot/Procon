@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConhecaSeusDireitosFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Direitos Básicos do Consumidor"
+            app:layout_constraintEnd_toStartOf="@+id/button10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:text="PROTEÇÃO À SAÚDE E SEGURANÇA  "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="PUBLICIDADE"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="259dp" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:text="PROTEÇÃO CONTRATUAL  "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="178dp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:text="APRESENTAÇÃO DO PRODUTO OU SERVIÇO "
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:text="GARANTIA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="COBRANÇA DE DÍVIDAS  "
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="332dp" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:text="PRÁTICAS ABUSIVAS  "
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="420dp" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALIMENTOS"
+            tools:layout_editor_absoluteX="225dp"
+            tools:layout_editor_absoluteY="362dp" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:text="ASSUNTOS FINANCEIROS  "
+            tools:layout_editor_absoluteX="184dp"
+            tools:layout_editor_absoluteY="475dp" />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>
