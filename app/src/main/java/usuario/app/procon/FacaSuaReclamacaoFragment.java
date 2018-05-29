@@ -22,6 +22,8 @@ public class FacaSuaReclamacaoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MenuActivity) getActivity()).setToolbarTitle("Faça sua reclamação");
+        ((MenuActivity) getActivity()).setCheckedNavView(R.id.nav_faca_reclamacao);
         return inflater.inflate(R.layout.fragment_faca_sua_reclamacao, container, false);
     }
 

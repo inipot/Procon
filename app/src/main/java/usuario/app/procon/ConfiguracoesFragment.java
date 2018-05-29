@@ -23,6 +23,8 @@ public class ConfiguracoesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MenuActivity) getActivity()).setToolbarTitle("Configurações");
+        ((MenuActivity) getActivity()).setCheckedNavView(R.id.nav_configuracoes);
         return inflater.inflate(R.layout.fragment_configuracoes, container, false);
     }
 

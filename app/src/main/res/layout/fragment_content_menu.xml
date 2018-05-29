@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ContentMenuFragment"
-    tools:showIn="@layout/app_bar_menu">
+    tools:context=".ContentMenuFragment">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/testelayout2"
@@ -32,7 +31,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btpostosatendimento"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -42,17 +41,17 @@
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toTopOf="@+id/btconhecaseusdireitos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.842"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@mipmap/procon" />
 
         <Button
             android:id="@+id/btconhecaseusdireitos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="256dp"
+            android:layout_marginBottom="240dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -83,7 +82,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btconhecaseusdireitos"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btacompanhereclamacao"
@@ -103,7 +102,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btfacasuareclamacao"
-            app:layout_constraintVertical_bias="0.134" />
+            app:layout_constraintVertical_bias="0.05" />
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

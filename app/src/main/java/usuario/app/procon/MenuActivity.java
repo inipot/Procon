@@ -1,7 +1,7 @@
 package usuario.app.procon;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -20,19 +20,17 @@ import android.widget.TextView;
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private  String barra;
     private NavigationView navigationView;
-    private String cpf,email;
-
+    private String cpf, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(barra);
         setSupportActionBar(toolbar);
-        Button btconhecaseusdireitos = (Button) findViewById(R.id.btconhecaseusdireitos);
+        getSupportFragmentManager().beginTransaction().add(R.id.testelayout3,new ContentMenuFragment()).commit();
+       /* Button btconhecaseusdireitos = (Button) findViewById(R.id.btconhecaseusdireitos);
         Button btpostosatendimento = (Button) findViewById(R.id.btpostosatendimento);
         Button btfacareclamacao = (Button) findViewById(R.id.btfacasuareclamacao);
         Button btacompanhareclamacao = (Button) findViewById(R.id.btacompanhereclamacao);
@@ -41,56 +39,38 @@ public class MenuActivity extends AppCompatActivity
             public void onClick(View v) {
                 Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
                 ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new ConhecaSeusDireitosFragment()).commit();
-                //barra = "Conheça seus direitos";
+                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new ConhecaSeusDireitosFragment()).addToBackStack(null).commit();
                 lconteudo.setVisibility(View.INVISIBLE);
-                //toolbar.setTitle(barra);
-                navigationView = (NavigationView) findViewById(R.id.nav_view);
-                navigationView.getMenu().getItem(1).setChecked(true);
             }
         });
 
         btpostosatendimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
                 ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new PostosAtendimentoFragment()).commit();
-                barra = "Postos de atendimento";
-                //lconteudo.setVisibility(View.INVISIBLE);
-                toolbar.setTitle(barra);
-                navigationView = (NavigationView) findViewById(R.id.nav_view);
-                navigationView.getMenu().getItem(2).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new PostosAtendimentoFragment()).addToBackStack(null).commit();
+                lconteudo.setVisibility(View.INVISIBLE);
             }
-        });
+        })
 
         btfacareclamacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
                 ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new FacaSuaReclamacaoFragment()).commit();
-                barra = "Faça sua reclamação";
-               // lconteudo.setVisibility(View.INVISIBLE);
-                toolbar.setTitle(barra);
-                navigationView = (NavigationView) findViewById(R.id.nav_view);
-                navigationView.getMenu().getItem(3).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new FacaSuaReclamacaoFragment()).addToBackStack(null).commit();
+                lconteudo.setVisibility(View.INVISIBLE);
             }
         });
 
         btacompanhareclamacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
                 ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new AcompanheSuasReclamacoesFragment()).commit();
-                barra = "Acompanhe sua reclamação";
-                //lconteudo.setVisibility(View.INVISIBLE);
-                toolbar.setTitle(barra);
-                navigationView = (NavigationView) findViewById(R.id.nav_view);
-                navigationView.getMenu().getItem(4).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new AcompanheSuasReclamacoesFragment()).addToBackStack(null).commit();
+                lconteudo.setVisibility(View.INVISIBLE);
             }
-        });
+        }); */
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +86,7 @@ public class MenuActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         Bundle extras = getIntent().getExtras();
-        if(extras!= null) {
+        if (extras != null) {
             cpf = extras.getString("usuariocpf");
             email = extras.getString("usuarioemail");
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -125,6 +105,7 @@ public class MenuActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+
             super.onBackPressed();
         }
     }
@@ -160,53 +141,49 @@ public class MenuActivity extends AppCompatActivity
         ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
 
         if (id == R.id.nav_inicio) {
-            Intent intent = new Intent(MenuActivity.this, MenuActivity.class);
-            intent.putExtra("usuariocpf",cpf);
-            intent.putExtra("usuarioemail",email);
-            startActivity(intent);
-            barra = "Procon";
-           // lconteudo.setVisibility(View.INVISIBLE);
-        }
 
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new ContentMenuFragment()).addToBackStack(null).commit();
 
-          else if (id == R.id.nav_conheca_seus_direitos) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new ConhecaSeusDireitosFragment()).commit();
-            barra = "Conheça seus direitos";
-           // lconteudo.setVisibility(View.INVISIBLE);
+        } else if (id == R.id.nav_conheca_seus_direitos) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new ConhecaSeusDireitosFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_postos_atendimento) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new PostosAtendimentoFragment()).commit();
-            barra = "Postos de atendimento";
-            //lconteudo.setVisibility(View.INVISIBLE);
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new PostosAtendimentoFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_faca_reclamacao) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new FacaSuaReclamacaoFragment()).commit();
-            barra = "Faça sua reclamação";
-           // lconteudo.setVisibility(View.INVISIBLE);
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new FacaSuaReclamacaoFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_acompanha_reclamacao) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new AcompanheSuasReclamacoesFragment()).commit();
-            barra = "Acompanhe suas reclamações";
-            //lconteudo.setVisibility(View.INVISIBLE);
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new AcompanheSuasReclamacoesFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_configuracoes) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout,new ConfiguracoesFragment()).commit();
-            barra = "Configurações";
-            //lconteudo.setVisibility(View.INVISIBLE);
+            getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,
+                    new ConfiguracoesFragment()).addToBackStack(null).commit();
 
         } else if (id == R.id.nav_sair) {
-            getSupportFragmentManager().beginTransaction().remove(new ConhecaSeusDireitosFragment()).commit();
-            getSupportFragmentManager().beginTransaction().remove(new PostosAtendimentoFragment()).commit();
-            getSupportFragmentManager().beginTransaction().remove(new FacaSuaReclamacaoFragment()).commit();
-            getSupportFragmentManager().beginTransaction().remove(new AcompanheSuasReclamacoesFragment()).commit();
-            startActivity(new Intent(MenuActivity.this,LoginActivity.class));
             finish();
+            getSupportFragmentManager().popBackStack();
+            startActivity(new Intent(MenuActivity.this, LoginActivity.class));
 
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(barra);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void setToolbarTitle(String title) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(title);
+    }
+
+    public void setCheckedNavView(int idItem) {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.getMenu().findItem(idItem).setChecked(true);
+    }
+
 }

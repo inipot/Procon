@@ -23,6 +23,8 @@ public class AcompanheSuasReclamacoesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MenuActivity) getActivity()).setToolbarTitle("Acompanhe suas reclamações");
+        ((MenuActivity) getActivity()).setCheckedNavView(R.id.nav_acompanha_reclamacao);
         return inflater.inflate(R.layout.fragment_acompanhe_suas_reclamacoes, container, false);
     }
 
