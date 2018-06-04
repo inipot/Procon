@@ -30,47 +30,7 @@ public class MenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportFragmentManager().beginTransaction().add(R.id.testelayout3,new ContentMenuFragment()).commit();
-       /* Button btconhecaseusdireitos = (Button) findViewById(R.id.btconhecaseusdireitos);
-        Button btpostosatendimento = (Button) findViewById(R.id.btpostosatendimento);
-        Button btfacareclamacao = (Button) findViewById(R.id.btfacasuareclamacao);
-        Button btacompanhareclamacao = (Button) findViewById(R.id.btacompanhereclamacao);
-        btconhecaseusdireitos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new ConhecaSeusDireitosFragment()).addToBackStack(null).commit();
-                lconteudo.setVisibility(View.INVISIBLE);
-            }
-        });
 
-        btpostosatendimento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new PostosAtendimentoFragment()).addToBackStack(null).commit();
-                lconteudo.setVisibility(View.INVISIBLE);
-            }
-        })
-
-        btfacareclamacao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new FacaSuaReclamacaoFragment()).addToBackStack(null).commit();
-                lconteudo.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        btacompanhareclamacao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ConstraintLayout lconteudo = findViewById(R.id.testelayout2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.testelayout, new AcompanheSuasReclamacoesFragment()).addToBackStack(null).commit();
-                lconteudo.setVisibility(View.INVISIBLE);
-            }
-        }); */
       /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +57,10 @@ public class MenuActivity extends AppCompatActivity
             usuario.setText(cpf);
             emailusuario.setText(email);
         }
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     @Override

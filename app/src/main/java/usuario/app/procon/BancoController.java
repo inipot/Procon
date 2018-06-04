@@ -28,6 +28,18 @@ public class BancoController {
         db.close();
     }
 
+    public void insert(Reclamacao reclamacao) throws Exception {
+        ContentValues values = new ContentValues();
+        values.put("cpfreclamacoes", reclamacao.getCpf());
+        values.put("assunto",reclamacao.getAssunto());
+        values.put("descricao", reclamacao.getDescricao());
+        values.put("nota_fiscal",reclamacao.getNotaFiscal());
+        values.put("registro",reclamacao.getRegistro());
+        db = banco.getWritableDatabase();
+        db.insert(banco.TABELA2, null, values);
+        db.close();
+    }
+
     public Usuario findById(Integer id) {
         String sql = "SELECT * FROM " + banco.TABELA + " WHERE id = ?";
         String[] selectionArgs = new String[] { "" + id };
@@ -50,6 +62,22 @@ public class BancoController {
         db.close();
         return retorno;
     }
+
+    public List<Reclamacao> findAllReclamacao() throws Exception {
+        List<Reclamacao> retorno = new ArrayList<>();
+        String sql = "SELECT * FROM " + banco.TABELA2;
+        db = banco.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            retorno.add(montaReclamacao(cursor));
+            cursor.moveToNext();
+        }
+        db.close();
+        return retorno;
+    }
+
+
     public Usuario montaUsuario(Cursor cursor) {
         if (cursor.getCount() == 0) {
             return null;
@@ -60,6 +88,19 @@ public class BancoController {
         String senha = cursor.getString(cursor.getColumnIndex("senha"));
         String confirmaSenha = cursor.getString(cursor.getColumnIndex("confirmaSenha"));
         return new Usuario(id, cpf, email, senha, confirmaSenha);
+    }
+
+    public Reclamacao montaReclamacao(Cursor cursor) {
+        if (cursor.getCount() == 0) {
+            return null;
+        }
+        Integer id = cursor.getInt(cursor.getColumnIndex("id"));
+        String cpf = cursor.getString(cursor.getColumnIndex("cpf"));
+        String assunto = cursor.getString(cursor.getColumnIndex("assunto"));
+        String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
+        String notaFiscal = cursor.getString(cursor.getColumnIndex("nota_fiscal"));
+        String registro = cursor.getString(cursor.getColumnIndex("registro"));
+        return new Reclamacao(id, cpf, assunto, descricao, notaFiscal,registro);
     }
 
     public Usuario findByLogin(String cpf, String senha) throws Exception {
