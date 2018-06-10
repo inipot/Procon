@@ -55,14 +55,12 @@ public class RegistrarActivity extends AppCompatActivity {
                         cpf.setError("Cpf já utilizado");
                         cpf.setFocusable(true);
                         cpf.requestFocus();
-                        //Toast.makeText(RegistrarActivity.this, "Cpf já utilizado", Toast.LENGTH_SHORT).show();
                     }
 
                     if (usuarioController.verificaEmail(emailString)) {
                         email.setError("Email já utilizado");
                         email.setFocusable(true);
                         email.requestFocus();
-                        //Toast.makeText(RegistrarActivity.this, "Email já utilizado", Toast.LENGTH_SHORT).show();
                     }
 
                 if(!ValidaCampos.validateEmail(emailString)) {

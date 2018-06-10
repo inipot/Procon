@@ -1,6 +1,9 @@
 package usuario.app.procon;
 
 import android.content.Context;
+import android.database.Cursor;
+
+import java.util.List;
 
 public class ReclamacaoController {
     private static BancoController bancoController;
@@ -16,7 +19,5 @@ public class ReclamacaoController {
         bancoController.insert(reclamacao);
         return "Reclamação registrada com sucesso";
     }
-
-
 
 }

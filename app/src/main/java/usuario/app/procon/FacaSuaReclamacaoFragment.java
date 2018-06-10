@@ -36,7 +36,7 @@ public class FacaSuaReclamacaoFragment extends Fragment {
         final Spinner spAssunto = (Spinner) view.findViewById(R.id.spAssunto);
         final Spinner spDescricao = (Spinner) view.findViewById(R.id.spDescricao);
         final EditText edNotaFiscal = (EditText) view.findViewById(R.id.edNotaFiscal);
-        final EditText edAcontecido = (EditText) view.findViewById(R.id.edNotaFiscal);
+        final EditText edAcontecido = (EditText) view.findViewById(R.id.edAcontecido);
 
         btRegistraReclamacao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,13 +45,16 @@ public class FacaSuaReclamacaoFragment extends Fragment {
                 Reclamacao reclamacao = new Reclamacao(null,cpf,spAssunto.getSelectedItem().toString(),
                         spDescricao.getSelectedItem().toString(),edNotaFiscal.getText().toString(),edAcontecido.getText().toString());
                 reclamacaoController = ReclamacaoController.getInstance(context);
-                try {
-                    reclamacaoController.insert(reclamacao);
-                    Toast.makeText(getActivity(),"Reclamação registrada com sucesso",Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                Boolean validaEdNotaFiscal =  ValidaCampos.validateNotNull(edNotaFiscal,"Insira a nota fiscal");
+                Boolean validaEdAcontecido = ValidaCampos.validateNotNull(edAcontecido,"Insira o registro da reclamação");
+                if(validaEdAcontecido && validaEdNotaFiscal) {
+                    try {
+                        reclamacaoController.insert(reclamacao);
+                        Toast.makeText(getActivity(), "Reclamação registrada com sucesso", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-
             }
         });
 

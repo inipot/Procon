@@ -13,7 +13,7 @@ public class CriaBanco extends SQLiteOpenHelper {
     public static final String SENHA = "senha";
     public static final String CONFIRMASENHA = "confirmaSenha";
     public static final String TABELA2 = "reclamacoes";
-    public static final String IDRECLAMACOES = "id";
+    public static final String IDRECLAMACOES = "_id";
     public static final String ASSUNTO = "assunto";
     public static final String CPFRECLAMACOES = "cpfreclamacoes";
     public static final String DESCRICAO = "descricao";

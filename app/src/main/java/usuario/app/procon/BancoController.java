@@ -40,15 +40,7 @@ public class BancoController {
         db.close();
     }
 
-    public Usuario findById(Integer id) {
-        String sql = "SELECT * FROM " + banco.TABELA + " WHERE id = ?";
-        String[] selectionArgs = new String[] { "" + id };
-        db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql, selectionArgs);
-        cursor.moveToFirst();
-        db.close();
-        return montaUsuario(cursor);
-    }
+
     public List<Usuario> findAll() throws Exception {
         List<Usuario> retorno = new ArrayList<>();
         String sql = "SELECT * FROM " + banco.TABELA;
@@ -63,11 +55,12 @@ public class BancoController {
         return retorno;
     }
 
-    public List<Reclamacao> findAllReclamacao() throws Exception {
+    public List<Reclamacao> findAllReclamacao() {
         List<Reclamacao> retorno = new ArrayList<>();
+        Cursor cursor;
         String sql = "SELECT * FROM " + banco.TABELA2;
         db = banco.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql, null);
+        cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             retorno.add(montaReclamacao(cursor));
@@ -75,6 +68,15 @@ public class BancoController {
         }
         db.close();
         return retorno;
+    }
+
+    public Cursor selectAll(String cpf){
+       String campos []   = {"cpfreclamacoes","assunto","descricao","nota_fiscal","registro","_id"};
+       String [] selectionArgs = new String[] {"" + cpf};
+       db = banco.getReadableDatabase();
+       Cursor cursor =  db.query("reclamacoes",campos,"cpfreclamacoes =?",selectionArgs,null,null,null,null);
+
+        return cursor;
     }
 
 
@@ -95,12 +97,14 @@ public class BancoController {
             return null;
         }
         Integer id = cursor.getInt(cursor.getColumnIndex("id"));
-        String cpf = cursor.getString(cursor.getColumnIndex("cpf"));
+        String cpf = cursor.getString(cursor.getColumnIndex("cpfreclamacoes"));
         String assunto = cursor.getString(cursor.getColumnIndex("assunto"));
         String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
         String notaFiscal = cursor.getString(cursor.getColumnIndex("nota_fiscal"));
         String registro = cursor.getString(cursor.getColumnIndex("registro"));
-        return new Reclamacao(id, cpf, assunto, descricao, notaFiscal,registro);
+
+
+        return new Reclamacao( id, cpf, cpf, descricao, notaFiscal, registro);
     }
 
     public Usuario findByLogin(String cpf, String senha) throws Exception {
