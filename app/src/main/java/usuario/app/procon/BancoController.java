@@ -40,7 +40,17 @@ public class BancoController {
         db.close();
     }
 
-
+    public void update(Usuario usuario) throws Exception {
+        ContentValues values = new ContentValues();
+        values.put("cpf", usuario.getCpf());
+        values.put("email",usuario.getEmail());
+        values.put("senha", usuario.getSenha());
+        values.put("confirmaSenha",usuario.getConfirmaSenha());
+        db = banco.getWritableDatabase();
+        String [] params = {usuario.getCpf()};
+        db.update(banco.TABELA, values, "cpf = ?",params);
+        db.close();
+    }
     public List<Usuario> findAll() throws Exception {
         List<Usuario> retorno = new ArrayList<>();
         String sql = "SELECT * FROM " + banco.TABELA;

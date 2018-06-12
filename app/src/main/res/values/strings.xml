@@ -16,9 +16,32 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string-array name="teste">
-        <item>teste1</item>
-        <item>teste2</item>
+    <string-array name="assunto">
+        <item>ACADEMIAS/CLUBES</item>
+        <item>AGÊNCIAS DE TURISMO</item>
+        <item>ALIMENTOS</item>
+        <item>CARTÃO DE CRÉDITO</item>
+        <item>ENTRETENIMENTO</item>
+        <item>FINANCEIROS/BANCÁRIOS</item>
+        <item>HABITAÇÃO</item>
+        <item>PRODUTOS</item>
+        <item>SAÚDE</item>
+        <item>SERVIÇOS ESSENCIAIS</item>
+        <item>SERVIÇOS PRIVADOS</item>
+        <item>TRANSPORTE AÉREO</item>
+    </string-array>
+
+    <string-array name="descricao">
+        <item>ACIDENTE DE CONSUMO CAUSOU DANOS FÍSICOS</item>
+        <item>ACIDENTE DE CONSUMO CAUSOU DANOS PESSOAIS</item>
+        <item>ALTERAÇÃO DE CONTRATO</item>
+        <item>ALTERAÇÃO DE SABOR,CHEIRO OU ASPECTO</item>
+        <item>BALANÇA FORA DA VISTA DO CONSUMIDOR</item>
+        <item>BANCO QUE NÃO ACEITA PAGAMENTO DE OUTROS BANCOS</item>
+        <item>CÁLCULO DE PRÊMIOS(SEGUROS)</item>
+        <item>CANCELAMENTO DE COMPRA</item>
+        <item>CANCELAMENTO DE SERVIÇO MAL PRESTADO</item>
+        <item>CANCELAMENTO DE SERVIÇO NÃO SOLICITADO</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

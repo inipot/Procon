@@ -51,6 +51,7 @@ public class FacaSuaReclamacaoFragment extends Fragment {
                     try {
                         reclamacaoController.insert(reclamacao);
                         Toast.makeText(getActivity(), "Reclamação registrada com sucesso", Toast.LENGTH_SHORT).show();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,new AcompanheSuasReclamacoesFragment()).addToBackStack(null).commit();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

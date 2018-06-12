@@ -17,8 +17,9 @@ public class UsuarioController {
         bancoController.insert(usuario);
         return "Conta criada com sucesso";
     }
-    public void update(Usuario usuario) throws Exception {
-    //    bancoController.update(usuario);
+    public String update(Usuario usuario) throws Exception {
+       bancoController.update(usuario);
+       return "Atualizado com sucesso";
     }
     public List<Usuario> findAll() throws Exception {
         return bancoController.findAll();

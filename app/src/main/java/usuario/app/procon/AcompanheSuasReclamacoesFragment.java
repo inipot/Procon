@@ -22,7 +22,7 @@ public class AcompanheSuasReclamacoesFragment extends Fragment {
 
     private Context context;
     private CursorAdapter dataSource;
-    private static final String campos []   = {"cpfreclamacoes","assunto","descricao","nota_fiscal","registro","_id"};
+    private static final String campos []   = {"assunto","descricao","nota_fiscal","registro","_id"};
     public AcompanheSuasReclamacoesFragment() {
         // Required empty public constructor
     }
@@ -41,12 +41,12 @@ public class AcompanheSuasReclamacoesFragment extends Fragment {
         listView = view.findViewById(R.id.listReclamacao);
         if(cursor.getCount() > 0){
             dataSource = new SimpleCursorAdapter(context,R.layout.model_faca_sua_reclamacao,cursor,campos,
-                    new int[]{R.id.edModelAcontecido,R.id.edModelCpf,R.id.edModelAssunto,R.id.edModelDescricao,R.id.edModelNotaFiscal});
+                    new int[]{R.id.edModelAssunto,R.id.edModelDescricao,R.id.edModelNotaFiscal,R.id.edModelAcontecido});
              listView.setAdapter(dataSource);
         }
         else {
             Toast.makeText(context, "Nenhuma reclamação encontrada", Toast.LENGTH_SHORT).show();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,new ContentMenuFragment()).addToBackStack(null).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.testelayout3,new FacaSuaReclamacaoFragment()).addToBackStack(null).commit();
         }
         return view;
     }

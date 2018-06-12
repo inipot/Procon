@@ -12,6 +12,5 @@
     <ListView
         android:id="@+id/listReclamacao"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:entries="@array/teste" />
+        android:layout_height="match_parent" />
 </FrameLayout>
