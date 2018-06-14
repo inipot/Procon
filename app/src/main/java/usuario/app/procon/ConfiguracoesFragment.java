@@ -35,6 +35,7 @@ public class ConfiguracoesFragment extends Fragment {
         final EditText senha = view.findViewById(R.id.edNovaSenhaConfiguracoes);
         final EditText confirmaSenha = view.findViewById(R.id.edConfirmaNovaSenhaConfiguracoes);
         final EditText emailUsuario = view.findViewById(R.id.textmenu2);
+        email.setText(((MenuActivity) getActivity()).getEmail());
         btAtualizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,28 +45,33 @@ public class ConfiguracoesFragment extends Fragment {
                 String senhaString = senha.getText().toString();
                 String confirmaSenhaString = confirmaSenha.getText().toString();
                 Usuario usuario = new Usuario(null, ((MenuActivity) getActivity()).getCpf(), emailString, senhaString, confirmaSenhaString);
+
                 if (usuarioController.verificaEmail(emailString)) {
                     email.setError("Email já utilizado");
                     email.setFocusable(true);
                     email.requestFocus();
                 }
-                    else if (!ValidaCampos.validateSenha(senhaString, confirmaSenhaString)) {
+
+                if(ValidaCampos.validateNotNull(email,"Insira o email")
+                        && ValidaCampos.validateNotNull(senha,"Digite a nova senha")
+                        && ValidaCampos.validateNotNull(confirmaSenha,"Confirme nova senha")) {
+
+                    if (!ValidaCampos.validateSenha(senhaString, confirmaSenhaString)) {
                         senha.setText("");
                         confirmaSenha.setText("");
                         Toast.makeText(context, "Senhas não correspondem", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    try {
-                        if (!usuarioController.verificaEmail(emailString)) {
-                            String resultado = usuarioController.update(usuario);
-                            Toast.makeText(context, resultado, Toast.LENGTH_SHORT).show();
-                            String emailUsuarioString = emailUsuario.toString();
-                            emailUsuario.setText(emailUsuarioString);
+                    } else
+                        try {
+                            if (!usuarioController.verificaEmail(emailString)) {
+                                String resultado = usuarioController.update(usuario);
+                                Toast.makeText(context, resultado, Toast.LENGTH_SHORT).show();
+                                String emailUsuarioString = emailUsuario.toString();
+                                emailUsuario.setText(emailUsuarioString);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
+                }
             }
         });
         return view;
